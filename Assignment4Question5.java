@@ -1,8 +1,8 @@
 import java.util.Random;
 
-protected class AccountHolder{
-   int id;
-   String address;
+public abstract class AccountHolder{
+   protected int id;
+   protected String address;
    AccountHolder(int id,String address){
        this.id=id;
        this.address=address;
@@ -16,14 +16,14 @@ protected class AccountHolder{
    }
 }
 
-interface Util {
+public interface Util {
     public String convertNameUpperCase(String name);
 }
 
-private class IndividualHolder extends AccountHolder implements Util{
+public class IndividualHolder extends AccountHolder implements Util{
 
-   String name;
-   String SSN;
+   private String name;
+   private String SSN;
    IndividualHolder(int id, String address,String name,String SSN) {
        super(id, address);
        this.name=name;
@@ -43,8 +43,8 @@ private class IndividualHolder extends AccountHolder implements Util{
    }  
 }
 
-private class CorporateHolder extends AccountHolder{
-   String contact;
+public class CorporateHolder extends AccountHolder{
+   private String contact;
    CorporateHolder(int id, String address,String contact) {
        super(id, address);
        this.contact=contact;
@@ -57,9 +57,9 @@ private class CorporateHolder extends AccountHolder{
    }
 }
 
-private class Account{
-   AccountHolder holder;
-   double balance=0.0;
+public class Account{
+   private AccountHolder holder;
+   private double balance=0.0;
    Account(double amt, AccountHolder holder){
        this.holder=holder;
        this.balance=amt;
